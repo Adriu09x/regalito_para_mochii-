@@ -1,187 +1,133 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Para mi niña hermosa 💗</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#170712"><title>Para Sukiii ♡</title>
 <style>
-  *{box-sizing:border-box}
-  html,body{margin:0;width:100%;min-height:100%;background:#06110f;color:#fff;overflow:hidden;font-family:Georgia,serif}
-  body{min-height:100svh;background:radial-gradient(ellipse at 50% 75%,#10251d 0%,#071310 48%,#030908 100%);position:relative;cursor:pointer}
-  .stars,.stars:before,.stars:after{position:absolute;inset:0;content:"";pointer-events:none;background-image:radial-gradient(#b7ffd2 1px,transparent 1.8px),radial-gradient(#ffb8e6 1.5px,transparent 2px);background-size:73px 91px,127px 143px;background-position:15px 20px,42px 55px;opacity:.25;animation:twinkle 4s ease-in-out infinite alternate}
-  .stars:before{background-size:119px 111px;opacity:.3;transform:translateY(18px)}
-  @keyframes twinkle{from{opacity:.12}to{opacity:.48}}
-  .hint{position:absolute;top:7%;width:100%;text-align:center;padding:0 18px;color:#ffd9f0;font:14px Arial,sans-serif;letter-spacing:1px;opacity:.9;animation:pulse 1.8s infinite}
-  @keyframes pulse{50%{opacity:.45}}
-  .message{position:absolute;top:15%;left:5%;width:90%;min-height:100px;text-align:center;color:#ff91d3;text-shadow:0 0 8px #f04cb8,0 0 20px #b018d6;font-size:clamp(23px,5.8vw,38px);font-weight:bold;line-height:1.35;z-index:3}
-  .garden{position:absolute;bottom:0;left:50%;width:min(100vw,500px);height:45vh;transform:translateX(-50%);opacity:0;transition:opacity 2s ease;z-index:2}
-  .garden.show{opacity:1}
-  svg{width:100%;height:100%;overflow:visible;display:block}
-  .stem{fill:none;stroke:#168c48;stroke-width:7;stroke-linecap:round;stroke-dasharray:500;stroke-dashoffset:500;filter:drop-shadow(0 0 5px #39ff9b)}
-  .garden.show .stem{animation:grow 3s ease forwards}
-  @keyframes grow{0%{stroke-dashoffset:500;opacity:.25}100%{stroke-dashoffset:0;opacity:1}}
-  .leaf{fill:#159b4e;stroke:#39e98a;stroke-width:1;filter:drop-shadow(0 0 5px #0a702e);opacity:0;transform-box:fill-box;transform-origin:center}
-  .garden.show .leaf{animation:leafIn 1.1s ease forwards}
-  @keyframes leafIn{0%{opacity:0;transform:scale(.1) rotate(-20deg)}70%{opacity:1;transform:scale(1.05) rotate(2deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
-  .petal{fill:#ff83c8;stroke:#ffb6e0;stroke-width:1.5;filter:drop-shadow(0 0 8px #ff59bd)}
-  .center{fill:#ffe8a3;filter:drop-shadow(0 0 8px #ffb4df)}
-  .flower{opacity:0;transform-box:fill-box;transform-origin:center bottom}
-  .garden.show .flower{animation:flowerAppear 2.4s ease forwards}
-  .lily{opacity:0;transform-box:fill-box;transform-origin:bottom center}
-  .garden.show .lily{animation:lilyAppear 2.8s ease forwards}
-  @keyframes flowerAppear{0%{opacity:0;filter:drop-shadow(0 0 0 transparent)}45%{opacity:.75}100%{opacity:1;filter:drop-shadow(0 0 7px #ff63bf)}}
-  @keyframes lilyAppear{0%{opacity:0}100%{opacity:.9}}
-  .spark{position:absolute;width:5px;height:5px;border-radius:50%;background:#ffb6e0;box-shadow:0 0 10px 3px #ff63bf;animation:float 4s linear infinite;opacity:0}
-  .garden.show ~ .spark{opacity:.8}
-  @keyframes float{0%{transform:translateY(30px) scale(.5);opacity:0}20%{opacity:.9}100%{transform:translateY(-170px) scale(1.2);opacity:0}}
-  .footer{position:absolute;bottom:3%;left:0;width:100%;text-align:center;font:12px Arial,sans-serif;color:#c9e8d6;opacity:.75;padding:0 14px;z-index:4}
-  .petal-fall{position:absolute;top:-12vh;z-index:2;pointer-events:none;color:#ffacd9;text-shadow:0 0 7px #ff64c3,0 0 16px #ff64c3;animation:fall linear infinite;opacity:.9}
-  @keyframes fall{0%{transform:translate3d(0,-10vh,0) rotate(0deg);opacity:0}10%{opacity:.95}90%{opacity:.8}100%{transform:translate3d(var(--drift),115vh,0) rotate(640deg);opacity:0}}
-  .glow-dot{position:absolute;z-index:1;width:5px;height:5px;border-radius:50%;background:#ffb2e0;box-shadow:0 0 8px 3px #ff70c7,0 0 18px 5px #e947a8;pointer-events:none;animation:glowPulse 2.4s ease-in-out infinite alternate}
-  @keyframes glowPulse{from{opacity:.25;transform:scale(.65)}to{opacity:1;transform:scale(1.4)}}
-  .ground-glow{position:absolute;bottom:0;left:50%;width:80vw;height:25vh;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(255,85,190,.12),transparent 70%);pointer-events:none}
-
-  .music-note{position:absolute;right:15px;top:14px;font:12px Arial,sans-serif;color:#ffd9f0;border:1px solid #ff91d366;border-radius:20px;padding:7px 10px;z-index:5}
-  #player{position:absolute;width:1px;height:1px;opacity:.01;left:-10px;bottom:0}
-  @media(min-height:800px){.garden{height:45vh}.message{top:16%}}
-</style>
-</head>
-<body>
-<div class="stars"></div>
-<div class="music-note" id="musicStatus">♫ toca la pantalla</div>
-<div class="hint" id="hint">TOCA LA PANTALLA PARA COMENZAR 💗</div>
-<div class="message" id="message"></div>
-<div class="ground-glow"></div><div id="fallingPetals"></div><div id="glowDots"></div><div class="garden" id="garden">
-<svg viewBox="0 0 420 420" role="img" aria-label="Flores rosadas animadas">
- <!-- Lirios rosados y blancos al fondo -->
- <g class="lily" style="animation-delay:.2s" transform="translate(125 165) scale(.66)">
-   <path d="M0 215 Q-2 95 -7 10" fill="none" stroke="#168c48" stroke-width="5" stroke-linecap="round"/>
-   <g transform="translate(-7 8)">
-    <path d="M0 0 Q-48 -48 -37 -76 Q-8 -62 0 0Z" fill="#ff9bd4" stroke="#ffd5eb" stroke-width="2"/>
-    <path d="M0 0 Q-8 -66 13 -84 Q30 -51 0 0Z" fill="#fff4fb" stroke="#ffd5eb" stroke-width="2"/>
-    <path d="M0 0 Q20 -63 48 -61 Q44 -26 0 0Z" fill="#ff8dcc" stroke="#ffd5eb" stroke-width="2"/>
-    <path d="M0 0 Q55 -28 61 -2 Q34 17 0 0Z" fill="#fff4fb" stroke="#ffd5eb" stroke-width="2"/>
-    <path d="M0 0 Q-34 17 -56 -4 Q-40 -25 0 0Z" fill="#ff8dcc" stroke="#ffd5eb" stroke-width="2"/>
-    <path d="M0 0 Q-10 26 4 37 Q15 18 0 0Z" fill="#fff4fb" stroke="#ffd5eb" stroke-width="2"/>
-    <circle cx="0" cy="0" r="5" fill="#ffe6a6"/>
-   </g>
- </g>
- <g class="lily" style="animation-delay:.7s" transform="translate(295 175) scale(.70)">
-   <path d="M0 205 Q4 110 6 6" fill="none" stroke="#168c48" stroke-width="5" stroke-linecap="round"/>
-   <g transform="translate(6 4)">
-    <path d="M0 0 Q-48 -48 -37 -76 Q-8 -62 0 0Z" fill="#fff4fb" stroke="#ffd5eb" stroke-width="2"/>
-    <path d="M0 0 Q-8 -66 13 -84 Q30 -51 0 0Z" fill="#ff9bd4" stroke="#ffd5eb" stroke-width="2"/>
-    <path d="M0 0 Q20 -63 48 -61 Q44 -26 0 0Z" fill="#fff4fb" stroke="#ffd5eb" stroke-width="2"/>
-    <path d="M0 0 Q55 -28 61 -2 Q34 17 0 0Z" fill="#ff8dcc" stroke="#ffd5eb" stroke-width="2"/>
-    <path d="M0 0 Q-34 17 -56 -4 Q-40 -25 0 0Z" fill="#fff4fb" stroke="#ffd5eb" stroke-width="2"/>
-    <path d="M0 0 Q-10 26 4 37 Q15 18 0 0Z" fill="#ff9bd4" stroke="#ffd5eb" stroke-width="2"/>
-    <circle cx="0" cy="0" r="5" fill="#ffe6a6"/>
-   </g>
- </g>
- <path class="stem" d="M210 420 Q205 320 210 165 M210 420 Q145 325 105 245 M210 420 Q270 325 315 255 M205 410 Q155 385 140 345 Q132 326 148 320 M216 400 Q267 380 284 346 Q295 328 279 317"/> 
- <path d="M190 420 Q112 390 91 350 Q78 325 95 316" fill="none" stroke="#31df7a" stroke-width="3" stroke-linecap="round" filter="drop-shadow(0 0 5px #1fff88)"/>
- <path d="M231 420 Q310 390 330 355 Q344 333 327 323" fill="none" stroke="#31df7a" stroke-width="3" stroke-linecap="round" filter="drop-shadow(0 0 5px #1fff88)"/>
- <g class="leaf">
-  <path d="M207 340 Q145 310 150 275 Q197 286 207 340Z"/>
-  <path d="M212 300 Q260 255 282 278 Q264 316 212 300Z"/>
-  <path d="M151 365 Q96 334 100 306 Q145 318 151 365Z"/>
-  <path d="M263 365 Q302 326 327 340 Q308 376 263 365Z"/>
-  <path d="M204 255 Q163 227 170 205 Q205 218 204 255Z"/>
-  <path d="M219 225 Q254 190 275 206 Q254 238 219 225Z"/>
-  <path d="M133 399 Q70 369 69 344 Q119 355 133 399Z"/>
-  <path d="M277 402 Q330 365 353 382 Q326 414 277 402Z"/>
- </g>
- <g class="flower" style="animation-delay:.4s" transform="translate(210 118) scale(1.08)">
-  <ellipse class="petal" cx="-28" cy="4" rx="25" ry="15" transform="rotate(30 -28 4)"/>
-  <ellipse class="petal" cx="28" cy="4" rx="25" ry="15" transform="rotate(-30 28 4)"/>
-  <ellipse class="petal" cx="-15" cy="-13" rx="25" ry="16" transform="rotate(55 -15 -13)"/>
-  <ellipse class="petal" cx="15" cy="-13" rx="25" ry="16" transform="rotate(-55 15 -13)"/>
-  <ellipse class="petal" cx="0" cy="-22" rx="18" ry="24"/>
-  <ellipse class="center" cx="0" cy="-12" rx="13" ry="11"/>
- </g>
- <g class="flower" style="animation-delay:1.1s" transform="translate(112 190) scale(.90)">
-  <ellipse class="petal" cx="-28" cy="4" rx="25" ry="15" transform="rotate(30 -28 4)"/>
-  <ellipse class="petal" cx="28" cy="4" rx="25" ry="15" transform="rotate(-30 28 4)"/>
-  <ellipse class="petal" cx="-15" cy="-13" rx="25" ry="16" transform="rotate(55 -15 -13)"/>
-  <ellipse class="petal" cx="15" cy="-13" rx="25" ry="16" transform="rotate(-55 15 -13)"/>
-  <ellipse class="petal" cx="0" cy="-22" rx="18" ry="24"/>
-  <ellipse class="center" cx="0" cy="-12" rx="13" ry="11"/>
- </g>
- <g class="flower" style="animation-delay:1.7s" transform="translate(308 190) scale(.92)">
-  <ellipse class="petal" cx="-28" cy="4" rx="25" ry="15" transform="rotate(30 -28 4)"/>
-  <ellipse class="petal" cx="28" cy="4" rx="25" ry="15" transform="rotate(-30 28 4)"/>
-  <ellipse class="petal" cx="-15" cy="-13" rx="25" ry="16" transform="rotate(55 -15 -13)"/>
-  <ellipse class="petal" cx="15" cy="-13" rx="25" ry="16" transform="rotate(-55 15 -13)"/>
-  <ellipse class="petal" cx="0" cy="-22" rx="18" ry="24"/>
-  <ellipse class="center" cx="0" cy="-12" rx="13" ry="11"/>
- </g>
-</svg>
-</div>
-<div class="footer">hecho con mucho amor, solo para ti, mi Mochii 💗</div>
-<div id="player"></div>
+:root{--rose:#ff547f;--pink:#ff9fba;--wine:#250b1c}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;overflow:hidden;background:radial-gradient(ellipse at 50% 54%,#6c1539 0%,#351027 38%,#180817 75%,#0e0612 100%);color:#ffe9f0;font-family:Georgia,serif}
+body:before{content:"";position:fixed;inset:0;background:linear-gradient(180deg,#10061122,#12030a44),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='%23ff9fba' fill-opacity='.18'%3E%3Ccircle cx='21' cy='37' r='1.2'/%3E%3Ccircle cx='149' cy='65' r='1'/%3E%3Ccircle cx='79' cy='180' r='1.3'/%3E%3Ccircle cx='191' cy='150' r='.8'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none;z-index:-2}
+.glow{position:fixed;width:65vw;height:65vw;max-width:650px;max-height:650px;border-radius:50%;left:50%;top:52%;transform:translate(-50%,-50%);background:#ff174f0b;filter:blur(35px);pointer-events:none}
+.page{min-height:100svh;display:flex;flex-direction:column;align-items:center;position:relative;padding:18px 16px 20px}
+.music{z-index:5;display:flex;align-items:center;gap:12px;padding:10px 15px;border-radius:30px;border:1px solid #ffb5cb44;background:#260a1cbf;box-shadow:0 0 22px #ff477e18;backdrop-filter:blur(10px);max-width:94vw}
+.music-label{font-size:clamp(.9rem,3vw,1.05rem);white-space:nowrap;color:#ffdbe5}
+h1{font-size:clamp(2rem,7vw,3.5rem);font-weight:normal;letter-spacing:.03em;margin:27px 0 0;text-shadow:0 0 22px #ff477e66}
+.sub{margin:5px 0 0;color:#ffc3d4;font-size:.94rem}
+.scene{flex:1;width:100%;min-height:360px;display:grid;place-items:center;position:relative;isolation:isolate}
+.ring{position:absolute;width:min(68vw,320px);aspect-ratio:1;border-radius:50%;border:1px solid #ffb0c72a;box-shadow:0 0 45px #ff477e0b,inset 0 0 35px #ff477e0a;animation:turn 35s linear infinite}
+.ring:before,.ring:after{content:"✦";position:absolute;color:#ffd2df;text-shadow:0 0 12px #ff7ca3;font-size:15px}.ring:before{top:12%;left:15%}.ring:after{bottom:13%;right:12%}
+.ring.r2{width:min(78vw,380px);aspect-ratio:1.25/1;transform:rotate(35deg);animation:turn 44s linear infinite reverse;border-color:#ff7ca31c}
+.heart-button{width:clamp(150px,43vw,220px);aspect-ratio:1;border:0;background:none;cursor:pointer;position:relative;z-index:3;filter:drop-shadow(0 0 12px #ff164f88) drop-shadow(0 0 30px #ff164f66);animation:pulse 1.8s ease-in-out infinite;touch-action:manipulation}
+.heart-button svg{width:100%;height:100%;overflow:visible;display:block}
+.heart-button:active{transform:scale(.94)}
+#hint{position:absolute;top:calc(50% + clamp(112px,27vw,135px));font-size:.88rem;color:#ffc7d6;letter-spacing:.04em;text-shadow:0 0 12px #ff477e55}
+#phrase-layer{position:fixed;inset:0;z-index:4;pointer-events:none;overflow:hidden}
+.phrase{position:absolute;max-width:min(78vw,290px);padding:9px 13px;border-radius:18px;background:#300b20d9;border:1px solid #ff9fba55;color:#fff0f5;font-size:clamp(.85rem,2.7vw,1rem);line-height:1.4;text-align:center;box-shadow:0 0 22px #ff1c5b35;animation:phraseFly 3.2s ease-out forwards}
+.petal{position:fixed;top:-25px;z-index:-1;color:#ff8eae;opacity:.65;pointer-events:none;text-shadow:0 0 9px #ff477e;animation:fall linear forwards}
+.foot{padding-top:8px;color:#ffb5ca;font-size:.9rem;text-align:center;text-shadow:0 0 12px #ff477e35}
+@keyframes pulse{0%,100%{transform:scale(1)}15%{transform:scale(1.045)}30%{transform:scale(1)}45%{transform:scale(1.025)}60%{transform:scale(1)}}
+@keyframes turn{to{rotate:360deg}}
+@keyframes phraseFly{0%{opacity:0;transform:translate(-50%,15px) scale(.75)}12%{opacity:1;transform:translate(-50%,0) scale(1)}75%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),var(--dy)) scale(.94)}}
+@keyframes fall{to{transform:translate(var(--drift),110svh) rotate(440deg);opacity:0}}
+@media(max-height:650px){h1{margin-top:10px}.scene{min-height:310px}.page{padding-top:10px}.sub{font-size:.85rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+</style></head>
+<body><div class="glow"></div><main class="page">
+  <header class="music">
+    <span class="music-label">♫ Te dedico esta canción ♡</span>
+    <iframe id="youtube-player" title="Te dedico esta canción" allow="autoplay; encrypted-media; picture-in-picture"
+      style="position:fixed;width:200px;height:200px;left:-220px;top:0;opacity:0;pointer-events:none;border:0"
+      src="about:blank"></iframe>
+  </header>
+  <h1>Para Sukiii <span style="color:#ff7299">♡</span></h1>
+  <p class="sub">un pedacito de mi corazón para ti</p>
+  <section class="scene">
+    <div class="ring"></div><div class="ring r2"></div>
+    <button class="heart-button" id="heart" aria-label="Toca el corazón para ver una frase bonita">
+      <svg viewBox="0 0 220 205" role="img" aria-label="Corazón rojo brillante">
+       <defs>
+        <linearGradient id="heartFill" x1="0" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="#ffb8cd"/><stop offset=".22" stop-color="#ff6d96"/><stop offset=".52" stop-color="#f52259"/><stop offset=".8" stop-color="#d90943"/><stop offset="1" stop-color="#850b35"/></linearGradient>
+        <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+        <filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
+       </defs>
+       <path d="M110 190 C92 173 20 121 14 72 C8 28 57 7 88 34 C100 44 107 54 110 61 C120 34 144 17 169 24 C205 34 216 66 200 99 C181 139 139 170 110 190Z" fill="#ff174f" opacity=".45" filter="url(#soft)"/>
+       <path d="M110 183 C91 165 25 119 18 76 C11 39 51 15 82 35 C96 44 105 56 110 67 C121 43 143 25 168 29 C200 34 210 64 195 95 C177 132 138 163 110 183Z" fill="url(#heartFill)" stroke="#ffb7cb" stroke-opacity=".8" stroke-width="2"/>
+       <path d="M37 58 C42 36 65 30 82 42 C89 47 94 53 98 61" fill="none" stroke="url(#shine)" stroke-width="7" stroke-linecap="round" opacity=".85"/>
+       <ellipse cx="63" cy="48" rx="18" ry="5" fill="#fff" opacity=".2" transform="rotate(-35 63 48)" filter="url(#soft)"/>
+       <path d="M33 81 C42 119 80 151 105 169" fill="none" stroke="#ffb6cb" stroke-opacity=".28" stroke-width="2" stroke-linecap="round"/>
+       <path d="M160 44 Q177 44 183 57" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+       <path d="M110 183 C91 165 25 119 18 76 C11 39 51 15 82 35 C96 44 105 56 110 67 C121 43 143 25 168 29 C200 34 210 64 195 95 C177 132 138 163 110 183Z" fill="none" stroke="#ffdae5" stroke-opacity=".35" stroke-width="1"/>
+      </svg>
+    </button>
+    <div id="hint">toca el corazón, mi amor ♡</div>
+  </section>
+  <div class="foot">Te amo, Sukiii. ♡</div>
+</main><div id="phrase-layer"></div>
 <script>
-const first = "Para ti mi niña hermosa, espero te guste mi amor, te amo mucho Mochii💕";
-const second = "Tú eres más hermosa que las flores mi amor, te amo mucho Mochiiii💗🫶🏾";
-let started=false, playerReady=false, player;
-function typeText(text, done){
- const box=document.getElementById('message'); box.textContent=''; let i=0;
- const timer=setInterval(()=>{box.textContent+=text.charAt(i);i++;if(i>=text.length){clearInterval(timer);if(done)done();}},65);
-}
-function loadMusic(){
- if(window.YT && YT.Player){createPlayer();return;}
- if(!document.getElementById('yt-api')){
-  const s=document.createElement('script');s.id='yt-api';s.src='https://www.youtube.com/iframe_api';document.head.appendChild(s);
- }
-}
-function createPlayer(){
- if(player) return;
- player=new YT.Player('player',{height:'1',width:'1',videoId:'9wiEM0s4aCQ',
-  playerVars:{autoplay:1,playsinline:1,controls:0,loop:1,playlist:'9wiEM0s4aCQ'},
-  events:{onReady:(event)=>{playerReady=true;try{event.target.setVolume(75);event.target.playVideo();}catch(e){}}}});
-}
-window.onYouTubeIframeAPIReady=createPlayer;
+const phrases=[
+"Te amo más de lo que sé explicar. ♡",
+"Si pudiera elegir de nuevo, volvería a elegirte.",
+"Mi lugar favorito siempre será donde estés tú.",
+"Tu sonrisa hace más bonito mi mundo.",
+"Entre tantas personas, mi corazón te encontró a ti.",
+"No tienes que ser perfecta; te amo por ser tú.",
+"Quiero cuidar tu corazón tan bonito como tú cuidas el mío.",
+"Gracias por existir, mi Sukiii.",
+"Me encantas incluso en esos pequeños detalles que quizá no notas.",
+"Quiero seguir creando recuerdos bonitos contigo, poquito a poquito.",
+"Si pudieras verte con mis ojos, entenderías por qué te amo tanto.",
+"Contigo hasta los días simples se sienten especiales.",
+"Quiero ser tu tranquilidad, tu apoyo y alguien con quien puedas ser tú misma.",
+"Cada día encuentro una razón nueva para quererte.",
+"Eres mi personita favorita. ♡",
+"Mi corazón tiene tu nombre escrito en cada latido.",
+"No necesito un motivo especial para recordarte cuánto te amo.",
+"Qué suerte la mía de coincidir contigo.",
+"Te elegiría en los días fáciles y también en los difíciles.",
+"Este corazoncito es pequeño para todo el amor que te tengo. ♡"
+];
+const heart=document.getElementById('heart'), layer=document.getElementById('phrase-layer');let prev=-1;
+let musicStartedByHeart=false;
+heart.addEventListener('click',()=>{
+ // Start the dedication song on the very first heart tap.
+ if(!musicStartedByHeart){musicStartedByHeart=true;startMusic();}
+ let i;do{i=Math.floor(Math.random()*phrases.length)}while(i===prev);prev=i;
+ const r=heart.getBoundingClientRect(), el=document.createElement('div');el.className='phrase';el.textContent=phrases[i];
+ const x=r.left+r.width/2+(Math.random()-.5)*90, y=r.top+r.height*.4;
+ el.style.left=Math.max(20,Math.min(innerWidth-20,x))+'px';el.style.top=y+'px';
+ el.style.setProperty('--dx',(Math.random()*150-75)+'px');el.style.setProperty('--dy',(-130-Math.random()*90)+'px');layer.appendChild(el);setTimeout(()=>el.remove(),3300);
+ for(let j=0;j<9;j++){const s=document.createElement('span');s.className='phrase';s.textContent=['♡','✦','♥'][Math.floor(Math.random()*3)];s.style.padding='0';s.style.border='0';s.style.background='transparent';s.style.left=x+'px';s.style.top=y+'px';s.style.setProperty('--dx',(Math.random()*190-95)+'px');s.style.setProperty('--dy',(-60-Math.random()*160)+'px');s.style.animationDuration='1.6s';layer.appendChild(s);setTimeout(()=>s.remove(),1700)}
+});
+function petal(){const p=document.createElement('span');p.className='petal';p.textContent=['✿','❀','♡','✧'][Math.floor(Math.random()*4)];p.style.left=Math.random()*100+'vw';p.style.fontSize=(10+Math.random()*12)+'px';p.style.setProperty('--drift',(Math.random()*130-65)+'px');p.style.animationDuration=(9+Math.random()*8)+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),18000)}setInterval(petal,1100);
+// YouTube: start at 2:45 (165 seconds) on the first heart tap.
+// Playback is requested by the tap so mobile browsers are more likely to allow it.
+const videoId='O9825iugYPM';
+const startAtSeconds=165;
+let ytPlayer=null, ytReady=false, heartRequestedMusic=false, musicStarted=false;
 function startMusic(){
- loadMusic();
- // Retry after YouTube's iframe API/player has initialized.
- let tries=0; const t=setInterval(()=>{
-  tries++;
-  if(playerReady){try{player.playVideo();}catch(e){} clearInterval(t);}
-  if(tries>40)clearInterval(t);
- },250);
- document.getElementById('musicStatus').textContent='♫ Lover Is a Day — Cuco';
+  heartRequestedMusic=true;
+  if(!ytPlayer || !ytReady) return;
+  ytPlayer.seekTo(startAtSeconds, true);
+  ytPlayer.playVideo();
+  musicStarted=true;
+  heartRequestedMusic=false;
 }
-function createDecorations(){
- const petals=document.getElementById('fallingPetals');
- const dots=document.getElementById('glowDots');
- for(let i=0;i<24;i++){
-  const p=document.createElement('div');p.className='petal-fall';
-  p.textContent=['✿','❀','♥','✾'][i%4];
-  p.style.left=(Math.random()*100)+'vw';
-  p.style.fontSize=(12+Math.random()*13)+'px';
-  p.style.animationDuration=(7+Math.random()*8)+'s';
-  p.style.animationDelay=(-Math.random()*12)+'s';
-  p.style.setProperty('--drift',((Math.random()-.5)*160)+'px');
-  petals.appendChild(p);
- }
- for(let i=0;i<30;i++){
-  const d=document.createElement('div');d.className='glow-dot';
-  d.style.left=(4+Math.random()*92)+'vw';d.style.top=(18+Math.random()*76)+'vh';
-  d.style.animationDelay=(Math.random()*2.5)+'s';
-  dots.appendChild(d);
- }
-}
-function beginGift(){
- if(started)return;
- started=true;
- createDecorations();
- document.getElementById('hint').textContent='';
- document.getElementById('garden').classList.add('show');
- startMusic();
- typeText(first,()=>{
-   setTimeout(()=>typeText(second),2200);
- });
-}
-document.body.addEventListener('click',beginGift,{passive:true});
-</script>
-</body>
-</html>
+window.onYouTubeIframeAPIReady=function(){
+  ytPlayer=new YT.Player('youtube-player',{
+    width:'200',height:'200',
+    videoId:videoId,
+    playerVars:{start:startAtSeconds,autoplay:0,controls:0,playsinline:1,rel:0},
+    events:{
+      onReady:function(){
+        ytReady=true;
+        if(heartRequestedMusic){startMusic();}
+      },
+      onError:function(e){console.warn('YouTube player error:',e.data);}
+    }
+  });
+};
+const ytApi=document.createElement('script');
+ytApi.src='https://www.youtube.com/iframe_api';
+document.head.appendChild(ytApi);
+</script></body></html>
